@@ -31,16 +31,23 @@ const httpServer = app.listen(SERVER_PORT, () => {
     console.log(`Servidor listo escuchando en el puerto: ${SERVER_PORT}`);
 });
 
+let messages = [];
+
 // Instancio el Websocket Server
 const socketServer = new Server(httpServer);
 
 socketServer.on("connection", socket => {
 
-    const logs = [];
-
     socket.on("message", data => {
-        logs.push({socketid: socket.id, message: data});
-        socketServer.emit("log", { logs });
-    })
+
+        console.log(data);
+        messages.push(data);
+        socketServer.emit("messageLogs", messages);
+    });
+
+    socket.on("userConnected", data=>{
+        console.log("User connected: " + data.user);
+        socket.broadcast.emit("userConnected", data.user);
+    });
 
 });
