@@ -45,7 +45,7 @@ socketServer.on("connection", socket => {
         socketServer.emit("messageLogs", messages);
     });
 
-    socket.on("userConnected", data=>{
+    socket.on("userConnected", data => {
         console.log("User connected: " + data.user);
         socket.broadcast.emit("userConnected", data.user);
     });

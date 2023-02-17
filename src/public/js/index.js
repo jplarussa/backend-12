@@ -14,12 +14,16 @@ Swal.fire({
     inputValidator: (value) => {
         if (!value) {
             return "Debes ingresar un nombre para comenzar el chat."
+        } else {
+            socket.emit("userConnected", {user: value});
         }
     },
     allowOutsideClick: false
 }).then(result => {
+
     user = result.value;
     console.log(result.value);
+
 });
 
 //Parte dos: Guardar mensajes por socketid.

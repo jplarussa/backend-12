@@ -2,17 +2,20 @@
   "name": "backend-12",
   "version": "1.0.0",
   "description": "Deploy para curso Backend con Glitch",
-  "main": "index.js",
+  "main": "app.js",
+  "type": "module",
   "scripts": {
     "start": "node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "14.x"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jplarussa/backend-12.git"
   },
   "author": "JP",
-  "type": "module",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jplarussa/backend-12/issues"
